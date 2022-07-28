@@ -17,10 +17,10 @@ description           SDRangel is an Open Source Qt5 / OpenGL 3.0+ SDR \
     and signal analyzer frontend to various hardware.
 long_description    ${description}
 
-github.setup          f4exb sdrangel 7.3.1 v
-checksums             rmd160  0b3864b0ae932fc0b2e2739d36178afd550872d8 \
-                      sha256  81d4b4d9ce36bf30ad8e5fa23e3cbc776cd7d9a5e5b30fd5e6cbf9ed3535b6ef \
-                      size    70782228
+github.setup          f4exb sdrangel 7.6.0 v
+checksums             rmd160  1aa253a29942a8697550e71c9593133e4cf04467 \
+                      sha256  d7084845424728f8b8f134c8032249d01ce79c227ce128a7279df02839c44b0a \
+                      size    72911295
 revision              0
 
 # check just the version 7 branch for now
@@ -40,11 +40,6 @@ compiler.cxx_standard 2017
 
 # use C++17 for the build itself
 patchfiles-append     use-cxx17.patch
-
-# TEMPORARY
-# https://trac.macports.org/ticket/60012
-# https://github.com/f4exb/sdrangel/issues/467
-patchfiles-append     disable-remotetx.patch
 
 # disable because macOS < 10.12 since it has a too old Qt version
 if {${os.platform} eq "darwin" && ${os.major} <= 16} {
@@ -102,7 +97,8 @@ configure.args-append \
     -DFORCE_SSE41=ON \
     -DIconv_LIBRARY=${prefix}/lib/libiconv.dylib \
     -DIconv_INCLUDE_DIR=${prefix}/include \
-    -DRX_SAMPLE_24BIT=ON
+    -DRX_SAMPLE_24BIT=ON \
+    -DENABLE_CHANNELTX_REMOTESOURCE=OFF
 
 cmake.module_path-append \
     ${prefix}/libexec/opencv${opencv_ver}/cmake

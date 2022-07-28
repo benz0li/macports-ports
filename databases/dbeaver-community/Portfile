@@ -3,7 +3,7 @@
 PortSystem          1.0
 PortGroup           github 1.0
 
-github.setup        dbeaver dbeaver 22.1.0
+github.setup        dbeaver dbeaver 22.1.2
 github.tarball_from releases
 revision            0
 name                dbeaver-community
@@ -38,13 +38,13 @@ if {${build_arch} eq "arm64"} {
 distname            dbeaver-ce-${version}-macosx.cocoa.${arch}
 
 checksums           dbeaver-ce-${version}-macosx.cocoa.x86_64${extract.suffix} \
-                        rmd160  427697f05ed68485c80ba60d54c1068b658fc028 \
-                        sha256  836bef315de7fe4f3224c7f65ff278cdb7900bfaee526e6b75cd922fd9e5d52d \
-                        size    108037076 \
+                       rmd160  4be3b3aa987121ca2bd548392d6255d74ebe78e1 \
+                        sha256  8a62435fe9edbbe8cb3437790f88db48980b575cdbb7ada7521c14ed81c78ffd \
+                        size    108695775 \
                     dbeaver-ce-${version}-macosx.cocoa.aarch64${extract.suffix} \
-                        rmd160  fb45388203ad5e563bf3e2e36d275dec0f416457 \
-                        sha256  34eca8751d49231ed1f89537210570ad5968d9e990f7f21797c8e89c16bf8de2 \
-                        size    108750747
+                        rmd160  2666970f714717e2e5c3e2ce118170841803f1d3 \
+                        sha256  edc711806bfa3d4a4bdb33252286184562364f930978dba610df234bb41be176 \
+                        size    109410502
 
 extract.mkdir       yes
 use_configure       no

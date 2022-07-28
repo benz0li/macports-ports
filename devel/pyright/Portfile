@@ -4,7 +4,7 @@ PortSystem          1.0
 PortGroup           npm 1.0
 
 name                pyright
-version             1.1.253
+version             1.1.258
 revision            0
 
 categories          devel
@@ -18,6 +18,6 @@ long_description    Pyright is a fast type checker meant for large Python \
 
 homepage            https://github.com/microsoft/pyright
 
-checksums           rmd160  90c0334581ad2a645c4e6933054cf12ac263039d \
-                    sha256  7015ca7df1bea58106c3f16fa10b45d178532682e32792d1882b644f8320aa31 \
-                    size    2315484
+checksums           rmd160  79fd67c0ef6a9d837e0ccdd7dea7590441fdfbe5 \
+                    sha256  542382053b67a73c8db1fa4f409da8fdfdd241e464e7cfb5a8956b0d4770f4c3 \
+                    size    2317946

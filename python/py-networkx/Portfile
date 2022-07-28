@@ -4,13 +4,14 @@ PortSystem          1.0
 PortGroup           python 1.0
 
 name                py-networkx
-version             2.8.3
+version             2.8.5
 revision            0
 categories-append   science
 license             BSD
 supported_archs     noarch
 
 python.versions     27 37 38 39 310
+python.pep517       yes
 
 maintainers         {stromnov @stromnov} openmaintainer
 
@@ -22,9 +23,9 @@ long_description    NetworkX is a Python package for the creation, \
 
 homepage            https://networkx.github.io
 
-checksums           rmd160  d4db11ce8e3d6b115922a1e5b49a58562ddadcf1 \
-                    sha256  67fab04a955a73eb660fe7bf281b6fa71a003bc6e23a92d2f6227654c5223dbe \
-                    size    1947042
+checksums           rmd160  142b778f200e1166c3d5afa82c5de4c42fd29383 \
+                    sha256  15a7b81a360791c458c55a417418ea136c13378cfdc06a2dcdc12bd2f9cf09c1 \
+                    size    1955125
 
 if {${name} ne ${subport}} {
     depends_build-append \
@@ -39,6 +40,7 @@ if {${name} ne ${subport}} {
                             sha256  45e56f7ab6fe81652fb4bc9f44faddb0e9025f469f602df14e3b2551c2ea5c8b \
                             size    1700336
         depends_lib-append  port:py${python.version}-decorator
+        python.pep517       no
     } elseif {${python.version} eq 37} {
         version             2.6.3
         revision            0
@@ -46,8 +48,7 @@ if {${name} ne ${subport}} {
         checksums           rmd160  6e7feda9ad8465c77eef36748daec00c6414130d \
                             sha256  c0946ed31d71f1b732b5aaa6da5a0388a345019af232ce2f49c766e2d6795c51 \
                             size    1844862
-    } else {
-        python.pep517       yes
+        python.pep517       no
     }
 
     livecheck.type      none

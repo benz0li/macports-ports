@@ -11,7 +11,7 @@ configure.cxx_stdlib    libc++
 compiler.cxx_standard   2014
 
 name                    nodejs18
-version                 18.3.0
+version                 18.7.0
 revision                0
 
 categories              devel net
@@ -32,9 +32,10 @@ homepage                https://nodejs.org/
 master_sites            ${homepage}dist/v${version}
 use_xz                  yes
 
-checksums               rmd160  31d10419bf1e0658e9c8ef4cbfef9512ff93c414 \
-                        sha256  3f694a81626e5057cda57898e771d213cfc5a649855f4cf1c6f6cd150c530625 \
-                        size    36941104
+
+checksums               rmd160  28fbf6e0c42bcd5413a08b40266ec664e845a526 \
+                        sha256  8834a33c92dfe6ba8903e6715caeaa25dff4657e703c54cd06ec113493e2c3c2 \
+                        size    36945328
 
 distname                node-v${version}
 

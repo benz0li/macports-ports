@@ -2,6 +2,7 @@
 
 PortSystem          1.0
 PortGroup           active_variants 1.1
+PortGroup           perl5 1.0
 
 name                lilypond
 
@@ -16,6 +17,7 @@ long_description    Lilypond is a unix-based automated engraving system that \
                     similar to LaTeX. Lilypond can export sheet music to PDF, \
                     EPS, SVG, and PNG formats, and can also create MIDI files.
 
+perl5.major         5.34
 
 subport lilypond-devel {
     long_description  The development version of the LilyPond music typesetter.
@@ -57,12 +59,12 @@ if {${subport} eq ${name}} {
         configure.ldflags-append -stdlib=${configure.cxx_stdlib}
     }
 } else {
-    version         2.23.9
+    version         2.23.10
     revision        0
     conflicts       lilypond
-    checksums       rmd160  a4847f8e65506f17b5f9e9bccd4a2c0783485a73 \
-                    sha256  11204fab661a5324f55c607dc8f9363a47afc741563f8dc867cdd60c173b27db \
-                    size    17490519
+    checksums       rmd160  9082f3b23ad045fb873a949845e7cebad99f8676 \
+                    sha256  06ac963df1699598c62f4390b8fc95344a723a88af440c00f5201c4aa8958f68 \
+                    size    17485344
 
     set livecheck_url "development.html"
 }
@@ -84,11 +86,11 @@ depends_build-append \
                     port:flex \
                     port:fontforge \
                     port:gmake \
-                    port:p5.28-encode \
-                    port:p5.28-pod-escapes \
-                    port:p5.28-pod-simple \
-                    port:p5.28-podlators \
-                    port:p5.28-scalar-list-utils \
+                    port:p${perl5.major}-encode \
+                    port:p${perl5.major}-pod-escapes \
+                    port:p${perl5.major}-pod-simple \
+                    port:p${perl5.major}-podlators \
+                    port:p${perl5.major}-scalar-list-utils \
                     port:pkgconfig \
                     port:t1utils \
                     port:texinfo \
@@ -124,6 +126,7 @@ if {${subport} eq ${name}} {
 build.type          gnu
 configure.cmd       autoconf -f && ./configure
 configure.python    ${prefix}/bin/python${py_ver}
+configure.perl      ${perl5.bin}
 
 if {${subport} ne ${name}} {
     # These targets also build and install compiled Scheme files (with
@@ -239,17 +242,16 @@ post-patch {
 
     # Correct python shebang.
     reinplace -W ${worksrcpath} -E \
-        s|/usr/bin/(env\\\ )?python|${configure.python}|g \
-        scripts/auxiliar/check_texi_refs.py \
-        scripts/auxiliar/check_translation.py \
-        scripts/auxiliar/fixcc.py \
-        scripts/auxiliar/makelsr.py \
-        scripts/auxiliar/node-menuify.py \
-        scripts/auxiliar/readlink.py \
+        s|/usr/bin/(env\\\ )?python3?|${configure.python}|g \
         scripts/auxiliar/tely-gettext.py \
         scripts/auxiliar/texi-langutils.py \
         scripts/auxiliar/translations-status.py \
-        scripts/auxiliar/update-snippets.py
+        scripts/auxiliar/makelsr.py \
+        scripts/auxiliar/check_translation.py \
+        scripts/auxiliar/readlink.py \
+        scripts/auxiliar/update-snippets.py \
+        scripts/auxiliar/check_texi_refs.py \
+        scripts/auxiliar/fixcc.py
 
     # ImageMagick and xelatex (or pdflatex) are only needed for
     # complete documentation builds, which +docs doesn't do currently.

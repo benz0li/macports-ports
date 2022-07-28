@@ -36,11 +36,11 @@ homepage            https://cmake.org
 platforms           darwin freebsd
 gitlab.instance     https://gitlab.kitware.com
 
-gitlab.setup        cmake   cmake a8bd06dfd47a56e09e660de5e58f26579105d2d4
-version             20220525-3.23.2-[string range ${gitlab.version} 0 7]
-checksums           rmd160  524727db39121f2cd37107720ac1061fe22a49bf \
-                    sha256  66a0561f7e196657f86b269bf03cbc6a0b5ad17600f68c57f987d5b96efa9452 \
-                    size    7670464
+gitlab.setup        cmake   cmake 9306a5ab28af6bb6dc2b933339ccc66764f44b12
+version             20220720-3.24.0-rc4-[string range ${gitlab.version} 0 7]
+checksums           rmd160  ef4e887b1d85282843c69c1ed65f85ca764b3100 \
+                    sha256  65520159428124af8e4224eb087aac1d7b2f460b4af4dbf4d52988bf996107ea \
+                    size    7956340
 revision            0
 
 # switched from "3.23.0" to "date-ver-hash"

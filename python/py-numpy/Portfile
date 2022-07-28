@@ -13,10 +13,10 @@ maintainers             {michaelld @michaelld} openmaintainer
 description             The core utilities for the scientific library scipy for Python
 long_description        ${description}
 
-github.setup            numpy numpy 1.22.4 v
-checksums               rmd160  71ff6cb8354f4d19cb3d3f75a9da59d2d5374422 \
-                        sha256  b4308198d0e41efaa108e57d69973398439c7299a9d551680cdd603cf6d20709 \
-                        size    10540245
+github.setup            numpy numpy 1.23.1 v
+checksums               rmd160  eab24b290265a767dc4924937f519fa09cc7d39b \
+                        sha256  d748ef349bfef2e1194b59da37ed5a29c19ea8d7e6342019921ba2ba4fd8b624 \
+                        size    10716841
 revision                0
 
 if {${name} ne ${subport}} {
@@ -36,7 +36,7 @@ python.consistent_destroot yes
 #universal_variant no
 
 # some older Clang say they support SIMD when they don't
-compiler.blacklist-append {clang < 910}
+compiler.blacklist-append {clang < 1100}
 
 # require a C/C++11 compliant compiler, to match SciPy and allow some
 # older macOS to build this port.
